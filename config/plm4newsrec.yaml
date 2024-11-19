@@ -1,0 +1,8 @@
+ctr_model:
+    reduced_dim: 64
+    embed_dim: 400
+
+    hidden_size: 200
+
+    learning_rate: 1e-4
+    weight_decay: 1e-6

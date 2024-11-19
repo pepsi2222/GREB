@@ -1,0 +1,33 @@
+model:
+  embed_dim: 64
+  hidden_size: 128
+  layer_num: 2
+  head_num: 2
+  dropout_rate: 0.5
+  activation: 'gelu'
+  layer_norm_eps: 1e-12
+  ckpt_path: ~
+
+train:
+  negative_count: 10
+  init_method: normal
+  epochs: 1
+
+text_encoder:
+  model_name_or_path: /data1/home/xingmei/GRE/e5-base-v2
+  activation: relu
+  dropout: 0.1
+  batch_norm: False
+  mlp_hidden_layers: []
+  text_field: text
+  pooler: cls
+  freeze_text_embedding: True
+  normalize_embeddings: False
+  lm_projection_layer_norm: False
+
+eval:
+  cutoff: [10, 20, 5, 50, 100]
+  val_metrics: [ndcg, recall, mrr]
+  val_n_epoch: 1
+  test_metrics: [ndcg, recall, precision, map, mrr, hit]
+  topk: 150

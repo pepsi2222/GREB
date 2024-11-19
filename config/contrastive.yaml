@@ -1,0 +1,74 @@
+language_model:
+    projection_layers: [128]
+    activation: relu
+    dropout: 0.0
+
+split_ratio: [0.8, 0.2, 0.0]
+
+loss: [guided]
+temperature: [0.05]
+weight: ~
+negatives_per_pair: 3
+
+data:
+    max_seq_length: 256
+
+early_stop:
+    early_stopping_patience: 5
+
+model:
+    model_name_or_path: ~
+
+train:
+    lr_scheduler_type: linear
+    logging_strategy: epoch
+    logging_nan_inf_filter: False
+    save_strategy: epoch
+    label_names: ~
+    metric_for_best_model: loss
+    greater_is_better: False
+    evaluation_strategy: epoch
+    prediction_loss_only: True
+    load_best_model_at_end: True
+    save_total_limit: 10
+
+    learning_rate: 3e-5
+    weight_decay: 0.0 
+    
+    gradient_accumulation_steps: 1
+    gradient_checkpointing: True
+    ddp_find_unused_parameters: False
+    deepspeed: /data1/home/xingmei/GRE/config/deepspeed.json
+
+    output_dir: ./contrastive/
+    num_train_epochs: 100
+    per_device_train_batch_size: 64
+    per_device_eval_batch_size: 64
+
+
+
+pooling: cls
+iter_dict: ~
+scale_dict: 
+    CDs_and_Vinyl: 1
+    Electronics: 1
+    Grocery_and_Gourmet_Food: 1
+    Health_and_Household: 1
+    Home_and_Kitchen: 1
+    Pet_Supplies: 1
+    Software: 1
+    Clothing_Shoes_and_Jewelry: 1
+    California_Fashion: 1
+    Florida_Fashion: 1
+    Texas_Fashion: 1
+    Kindle_Store: 1
+    Movies_and_TV: 1
+    Steam: 1
+    Bili_2M: 1
+    Alabama_Food: 1
+    Connecticut_Food: 1
+    Mississippi_Food: 1
+
+temperature_dict: ~
+negatives_spread: True
+use_prefix: False

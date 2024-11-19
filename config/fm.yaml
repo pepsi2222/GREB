@@ -1,0 +1,7 @@
+# ---------- Amazon ---------------
+ctr_model:
+    batch_norm: True
+    dropout: 0.5
+
+    learning_rate: 3e-3
+    weight_decay: 1e-6

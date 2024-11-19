@@ -1,0 +1,27 @@
+# ------------ Transformers' Arguments For CTR Task-------------------
+train:
+    # output_dir: ./new-ctr
+    num_train_epochs: 10
+    lr_scheduler_type: reduce_lr_on_plateau
+    logging_nan_inf_filter: False
+    metric_for_best_model: auc
+    greater_is_better: True
+    prediction_loss_only: False
+    load_best_model_at_end: True
+
+    # per_device_train_batch_size: 2048
+    # per_device_eval_batch_size: 2048
+
+    # logging_strategy: epoch
+    # save_strategy: epoch
+    # evaluation_strategy: epoch
+
+    # logging_strategy: steps
+    # save_strategy: steps
+    # evaluation_strategy: steps
+    # eval_steps: 4000
+    # save_steps: 4000
+    # logging_steps: 4000
+
+pretrained_dir: ~
+peft_model: ~

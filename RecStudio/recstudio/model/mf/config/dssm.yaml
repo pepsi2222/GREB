@@ -1,0 +1,16 @@
+model:
+  embed_dim: 64
+  mlp_layer: [128, 128, 128]
+  activation: tanh
+  dropout: 0.3
+  batch_norm: False
+
+train:
+  negative_count: 1
+
+eval:
+  cutoff: [10, 20, 5, 50, 100]
+  val_metrics: [ndcg, recall, mrr]
+  val_n_epoch: 1
+  test_metrics: [ndcg, recall, precision, map, mrr, hit]
+  topk: 150

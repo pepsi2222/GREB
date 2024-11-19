@@ -1,0 +1,51 @@
+temperature: 0.1
+pooling: attn
+hidden_size: 256
+user_repr: hardprompt
+add_special_token: True
+
+lora: True
+lora_r: 8
+lora_alpha: 8
+lora_dropout: 0.0
+sample_ratio: 0.3
+
+
+train:
+    output_dir: ./supervised
+    num_train_epochs: 10
+    lr_scheduler_type: linear
+    per_device_train_batch_size: 128
+    per_device_eval_batch_size: 128
+    logging_nan_inf_filter: False
+    label_names: ~
+    metric_for_best_model: loss
+    greater_is_better: False
+    prediction_loss_only: True
+    load_best_model_at_end: True
+
+    learning_rate: 3e-5
+    weight_decay: 0.0 
+
+    
+    gradient_accumulation_steps: 10
+    gradient_checkpointing: False
+
+    logging_strategy: epoch
+    save_strategy: epoch
+    evaluation_strategy: epoch
+
+    # logging_strategy: steps
+    # save_strategy: steps
+    # evaluation_strategy: steps
+    # eval_steps: 5000
+    # save_steps: 5000
+    # logging_steps: 5000
+
+
+
+data:
+    max_seq_length: 512
+
+early_stop:
+    early_stopping_patience: 10

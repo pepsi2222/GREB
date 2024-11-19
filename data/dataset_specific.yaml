@@ -1,0 +1,1207 @@
+MIND:
+    prefix: "Represent the new title and abstract: "
+    path: MIND/dataset.pkl
+    pair: MIND/pairs_co3_sim0.65.pkl
+    guide_model: MIND/guide_model_text_embeddings.pt
+    text_fields: [title, abstract]
+    temperature: 0.05
+    max_behavior_len: 50
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: MIND/ctr
+            per_device_train_batch_size: 2048
+            per_device_eval_batch_size: 2048
+            logging_strategy: steps
+            save_strategy: steps
+            evaluation_strategy: steps
+            eval_steps: 4000
+            save_steps: 4000
+            logging_steps: 4000
+
+# ---------- AmazonReviews2023 -------------------
+
+Arts_Crafts_and_Sewing:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_Arts_Crafts_and_Sewing.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Arts_Crafts_and_Sewing/ctr
+            per_device_train_batch_size: 2048
+            per_device_eval_batch_size: 2048
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Automotive:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_Automotive.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Automotive/ctr
+            per_device_train_batch_size: 4096
+            per_device_eval_batch_size: 4096
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Baby_Products:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_Baby_Products.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Baby_Products/ctr
+            per_device_train_batch_size: 2048
+            per_device_eval_batch_size: 2048
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Beauty_and_Personal_Care:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_Beauty_and_Personal_Care.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Beauty_and_Personal_Care/ctr
+            per_device_train_batch_size: 4096
+            per_device_eval_batch_size: 4096
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Books:
+    prefix: "Represent the Book description: "
+    path: AmazonReviews2023/dataset/filtered_Books.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Books/ctr
+            per_device_train_batch_size: 8192
+            per_device_eval_batch_size: 8192
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+    recall:
+        batch_size: 8192
+
+
+CDs_and_Vinyl:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_CDs_and_Vinyl.pkl
+    pure_dataset: AmazonReviews2023/pure_dataset/filtered_CDs_and_Vinyl.pkl
+    pair: AmazonReviews2023/pairs/CDs_and_Vinyl_27.pkl
+    guide_model: AmazonReviews2023/guide_model_text_embeddings/CDs_and_Vinyl.pt
+    text_fields: [text]
+    temperature: 0.04
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/CDs_and_Vinyl/ctr
+            per_device_train_batch_size: 2048
+            per_device_eval_batch_size: 2048
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Cell_Phones_and_Accessories:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_Cell_Phones_and_Accessories.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Cell_Phones_and_Accessories/ctr
+            per_device_train_batch_size: 2048
+            per_device_eval_batch_size: 2048
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Clothing_Shoes_and_Jewelry:
+    prefix: "Represent the clothing description: "
+    path: AmazonReviews2023/dataset/filtered_Clothing_Shoes_and_Jewelry.pkl
+    pure_dataset: AmazonReviews2023/pure_dataset/filtered_Clothing_Shoes_and_Jewelry.pkl
+    pair: AmazonReviews2023/pairs/Clothing_Shoes_and_Jewelry.pkl
+    guide_model: AmazonReviews2023/guide_model_text_embeddings/Clothing_Shoes_and_Jewelry.pt
+    text_fields: [text]
+    temperature: 0.03
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Clothing_Shoes_and_Jewelry/ctr
+            per_device_train_batch_size: 16384
+            per_device_eval_batch_size: 16384
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Electronics:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_Electronics.pkl
+    pure_dataset: AmazonReviews2023/pure_dataset/filtered_Electronics.pkl
+    pair: AmazonReviews2023/pairs/Electronics.pkl
+    guide_model: AmazonReviews2023/guide_model_text_embeddings/Electronics.pt
+    text_fields: [text]
+    temperature: 0.04
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Electronics/ctr
+            per_device_train_batch_size: 8192
+            per_device_eval_batch_size: 8192
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Grocery_and_Gourmet_Food:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_Grocery_and_Gourmet_Food.pkl
+    pure_dataset: AmazonReviews2023/pure_dataset/filtered_Grocery_and_Gourmet_Food.pkl
+    pair: AmazonReviews2023/pairs/Grocery_and_Gourmet_Food_2_65.pkl
+    guide_model: AmazonReviews2023/guide_model_text_embeddings/Grocery_and_Gourmet_Food.pt
+    text_fields: [text]
+    temperature: 0.04
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Grocery_and_Gourmet_Food/ctr
+            per_device_train_batch_size: 2048
+            per_device_eval_batch_size: 2048
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Health_and_Household:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_Health_and_Household.pkl
+    pure_dataset: AmazonReviews2023/pure_dataset/filtered_Health_and_Household.pkl
+    pair: AmazonReviews2023/pairs/Health_and_Household.pkl
+    guide_model: AmazonReviews2023/guide_model_text_embeddings/Health_and_Household.pt
+    text_fields: [text]
+    temperature: 0.04
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Health_and_Household/ctr
+            per_device_train_batch_size: 4096
+            per_device_eval_batch_size: 4096
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Home_and_Kitchen:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_Home_and_Kitchen.pkl
+    pure_dataset: AmazonReviews2023/pure_dataset/filtered_Home_and_Kitchen.pkl
+    pair: AmazonReviews2023/pairs/Home_and_Kitchen.pkl
+    guide_model: AmazonReviews2023/guide_model_text_embeddings/Home_and_Kitchen.pt
+    text_fields: [text]
+    temperature: 0.04
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Home_and_Kitchen/ctr
+            per_device_train_batch_size: 8192
+            per_device_eval_batch_size: 8192
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Industrial_and_Scientific:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_Industrial_and_Scientific.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Industrial_and_Scientific/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 512
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Kindle_Store:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_Kindle_Store.pkl
+    pure_dataset: AmazonReviews2023/pure_dataset/filtered_Kindle_Store.pkl
+    pair: AmazonReviews2023/pairs/Kindle_Store_59.pkl
+    guide_model: AmazonReviews2023/guide_model_text_embeddings/Kindle_Store.pt
+    text_fields: [text]
+    temperature: 0.01
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Kindle_Store/ctr
+            per_device_train_batch_size: 8192
+            per_device_eval_batch_size: 8192
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Movies_and_TV:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_Movies_and_TV.pkl
+    pure_dataset: AmazonReviews2023/pure_dataset/filtered_Movies_and_TV.pkl
+    pair: AmazonReviews2023/pairs/Movies_and_TV.pkl
+    guide_model: AmazonReviews2023/guide_model_text_embeddings/Movies_and_TV.pt
+    text_fields: [text]
+    temperature: 0.04
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Movies_and_TV/ctr
+            per_device_train_batch_size: 4096
+            per_device_eval_batch_size: 4096
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Musical_Instruments:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_Musical_Instruments.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Musical_Instruments/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 512
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Office_Products:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_Office_Products.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Office_Products/ctr
+            per_device_train_batch_size: 2048
+            per_device_eval_batch_size: 2048
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Patio_Lawn_and_Garden:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_Patio_Lawn_and_Garden.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Patio_Lawn_and_Garden/ctr
+            per_device_train_batch_size: 2048
+            per_device_eval_batch_size: 2048
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Pet_Supplies:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_Pet_Supplies.pkl
+    pure_dataset: AmazonReviews2023/pure_dataset/filtered_Pet_Supplies.pkl
+    pair: AmazonReviews2023/pairs/Pet_Supplies.pkl
+    guide_model: AmazonReviews2023/guide_model_text_embeddings/Pet_Supplies.pt
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Pet_Supplies/ctr
+            per_device_train_batch_size: 4096
+            per_device_eval_batch_size: 4096
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Software:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_Software.pkl
+    pure_dataset: AmazonReviews2023/pure_dataset/filtered_Software.pkl
+    pair: AmazonReviews2023/pairs/Software.pkl
+    guide_model: AmazonReviews2023/guide_model_text_embeddings/Software.pt
+    text_fields: [text]
+    temperature: 0.04
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Software/ctr
+            per_device_train_batch_size: 2048
+            per_device_eval_batch_size: 2048
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Sports_and_Outdoors:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_Sports_and_Outdoors.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Sports_and_Outdoors/ctr
+            per_device_train_batch_size: 2048
+            per_device_eval_batch_size: 2048
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Tools_and_Home_Improvement:
+    prefix: "Represent the Amazon description: "
+    path: AmazonReviews2023/dataset/filtered_Tools_and_Home_Improvement.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Tools_and_Home_Improvement/ctr
+            per_device_train_batch_size: 8192
+            per_device_eval_batch_size: 8192
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Toys_and_Games:
+    prefix: "Represent the game description: "
+    path: AmazonReviews2023/dataset/filtered_Toys_and_Games.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Toys_and_Games/ctr
+            per_device_train_batch_size: 4096
+            per_device_eval_batch_size: 4096
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Video_Games:
+    prefix: "Represent the game description: "
+    path: AmazonReviews2023/dataset/filtered_Video_Games.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: AmazonReviews2023/Video_Games/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 512
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+# -----------------------------------------
+
+
+OnlineRetail:
+    prefix: "Represent the product description: "
+    path: OnlineRetail/filtered_OnlineRetail.pkl
+    text_fields: [text] #[Description]
+    max_behavior_len: 50
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: OnlineRetail/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 512
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+    recall:
+        k: 50
+
+
+HM:
+    prefix: "Represent the clothing description: "
+    path: HM/filtered_HM.pkl
+    text_fields: [text] 
+                #[prod_name, product_type_name, product_group_name, 
+                # graphical_appearance_name, colour_group_name, perceived_colour_value_name,
+                # perceived_colour_master_name, department_name, index_name, index_group_name, 
+                # section_name, garment_group_name, detail_desc]
+    max_behavior_len: 50
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: HM/ctr
+            per_device_train_batch_size: 8192
+            per_device_eval_batch_size: 8192
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Goodreads:
+    prefix: "Represent the book description: "
+    path: Goodreads/filtered_Goodreads_rating.pkl
+    text_fields: [text] #[title, description]
+    max_behavior_len: 50
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: Goodreads/ctr_rating
+            per_device_train_batch_size: 8192
+            per_device_eval_batch_size: 8192
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+MovieLens:
+    prefix: "Represent the movie overview: "
+    path: MovieLens/MovieLens.pkl
+    text_fields: [text] #[summary]
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: MovieLens/new_ctr
+            # per_device_train_batch_size: 8192
+            # per_device_eval_batch_size: 8192
+            per_device_train_batch_size: 4096
+            per_device_eval_batch_size: 4096
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Steam:
+    prefix: "Represent the game description: "
+    path: Steam/filtered_Steam.pkl
+    pure_dataset: Steam/pure_filtered_Steam.pkl
+    pair: Steam/pairs.pkl
+    guide_model: Steam/guide_model_text_embeddings.pt
+    text_fields: [text]
+    temperature: 0.01
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: Steam/ctr
+            per_device_train_batch_size: 4096
+            per_device_eval_batch_size: 4096
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+# -------------- Bili ----------------------------
+
+Bili_2M:
+    prefix: "Represent the video title: "
+    path: Bili/dataset/filtered_Bili_2M.pkl
+    pure_dataset: Bili/pure_dataset/filtered_Bili_2M.pkl
+    pair: Bili/pairs/Bili_2M_1_65.pkl
+    guide_model: Bili/guide_model_text_embeddings/Bili_2M.pt
+    text_fields: [text]
+    temperature: 0.04
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: Bili/Bili_2M/ctr
+            per_device_train_batch_size: 4096
+            per_device_eval_batch_size: 4096
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+            num_train_epochs: 30
+
+
+Bili_Cartoon:
+    prefix: "Represent the video title: "
+    path: Bili/dataset/filtered_Bili_Cartoon.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: Bili/Bili_Cartoon/ctr
+            per_device_train_batch_size: 256
+            per_device_eval_batch_size: 256
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+            num_train_epochs: 30
+
+
+Bili_Dance:
+    prefix: "Represent the video title: "
+    path: Bili/dataset/filtered_Bili_Dance.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: Bili/Bili_Dance/ctr
+            per_device_train_batch_size: 256
+            per_device_eval_batch_size: 256
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+            num_train_epochs: 30
+
+
+Bili_Food:
+    prefix: "Represent the video title: "
+    path: Bili/dataset/filtered_Bili_Food.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: Bili/Bili_Food/ctr
+            per_device_train_batch_size: 256
+            per_device_eval_batch_size: 256
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+            num_train_epochs: 30
+
+
+Bili_Movie:
+    prefix: "Represent the video title: "
+    path: Bili/dataset/filtered_Bili_Movie.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: Bili/Bili_Movie/ctr
+            per_device_train_batch_size: 256
+            per_device_eval_batch_size: 256
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+            num_train_epochs: 30
+
+
+Bili_Music:
+    prefix: "Represent the video title: "
+    path: Bili/dataset/filtered_Bili_Music.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: Bili/Bili_Music/ctr
+            per_device_train_batch_size: 256
+            per_device_eval_batch_size: 256
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+            num_train_epochs: 30
+
+
+DY:
+    prefix: "Represent the video title: "
+    path: Bili/dataset/filtered_DY.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: Bili/DY/ctr
+            per_device_train_batch_size: 256
+            per_device_eval_batch_size: 256
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+            num_train_epochs: 30
+
+
+KU:
+    prefix: "Represent the video title: "
+    path: Bili/dataset/filtered_KU.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 10
+        train:
+            num_train_epochs: 50
+            output_dir: Bili/KU/ctr
+            per_device_train_batch_size: 256
+            per_device_eval_batch_size: 256
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+            num_train_epochs: 30
+
+
+QB:
+    prefix: "Represent the video title: "
+    path: Bili/dataset/filtered_QB.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: Bili/QB/ctr
+            per_device_train_batch_size: 256
+            per_device_eval_batch_size: 256
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+            num_train_epochs: 30
+
+
+TN:
+    prefix: "Represent the video title: "
+    path: Bili/dataset/filtered_TN.pkl
+    text_fields: [text]
+    temperature: 0.05
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: Bili/TN/ctr
+            per_device_train_batch_size: 256
+            per_device_eval_batch_size: 256
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+            num_train_epochs: 30
+
+# -----------------------------------------
+
+REASONER:
+    path: REASONER/filtered_REASONER.pkl
+    text_fields: [hobby, title, info, tag_contents]
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: REASONER/ctr
+            per_device_train_batch_size: 256
+            per_device_eval_batch_size: 256
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+  
+# ----------------------- Food ------------------------
+
+Yelp:
+    path: Yelp/filtered_Yelp_rating.pkl
+    text_fields: [text] #[name, attributes, categories]
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: Yelp/ctr
+            per_device_train_batch_size: 1024
+            per_device_eval_batch_size: 1024
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+          
+
+Alabama_Food:
+    prefix: "Represent the restaurant review summary: "
+    path: GoogleLocalData/Food/rating_dataset/filtered_Alabama.pkl
+    pure_dataset: GoogleLocalData/Food/rating_pure_dataset/filtered_Alabama.pkl
+    pair: GoogleLocalData/Food/pairs/Alabama_2_7.pkl
+    guide_model: GoogleLocalData/Food/guide_model_text_embeddings/Alabama.pt
+    text_fields: [text]
+    temperature: 0.01
+    max_behavior_len: 30
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: GoogleLocalData/Food/Alabama/ctr
+            per_device_train_batch_size: 1024
+            per_device_eval_batch_size: 1024
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Arkansas_Food:
+    prefix: "Represent the restaurant review summary: "
+    path: GoogleLocalData/Food/rating_dataset/filtered_Arkansas.pkl
+    text_fields: [text]
+    temperature: 0.01
+    max_behavior_len: 30
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: GoogleLocalData/Food/Arkansas/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 1024
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Connecticut_Food:
+    prefix: "Represent the restaurant review summary: "
+    path: GoogleLocalData/Food/rating_dataset/filtered_Connecticut.pkl
+    pure_dataset: GoogleLocalData/Food/rating_pure_dataset/filtered_Connecticut.pkl
+    pair: GoogleLocalData/Food/pairs/Connecticut.pkl
+    guide_model: GoogleLocalData/Food/guide_model_text_embeddings/Connecticut.pt
+    text_fields: [text]
+    temperature: 0.04
+    max_behavior_len: 30
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: GoogleLocalData/Food/Connecticut/ctr
+            per_device_train_batch_size: 1024
+            per_device_eval_batch_size: 1024
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Delaware_Food:
+    prefix: "Represent the restaurant review summary: "
+    path: GoogleLocalData/Food/rating_dataset/filtered_Delaware.pkl
+    text_fields: [text]
+    temperature: 0.01
+    max_behavior_len: 30
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: GoogleLocalData/Food/Delaware/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 1024
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+District_of_Columbia_Food:
+    prefix: "Represent the restaurant review summary: "
+    path: GoogleLocalData/Food/rating_dataset/filtered_District_of_Columbia.pkl
+    text_fields: [text]
+    temperature: 0.01
+    max_behavior_len: 30
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: GoogleLocalData/Food/District_of_Columbia/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 1024
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Hawaii_Food:
+    prefix: "Represent the restaurant review summary: "
+    path: GoogleLocalData/Food/rating_dataset/filtered_Hawaii.pkl
+    text_fields: [text]
+    temperature: 0.01
+    max_behavior_len: 30
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: GoogleLocalData/Food/Hawaii/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 1024
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Idaho_Food:
+    prefix: "Represent the restaurant review summary: "
+    path: GoogleLocalData/Food/rating_dataset/filtered_Idaho.pkl
+    text_fields: [text]
+    temperature: 0.01
+    max_behavior_len: 30
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: GoogleLocalData/Food/Idaho/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 1024
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Maine_Food:
+    prefix: "Represent the restaurant review summary: "
+    path: GoogleLocalData/Food/rating_dataset/filtered_Maine.pkl
+    text_fields: [text]
+    temperature: 0.01
+    max_behavior_len: 30
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: GoogleLocalData/Food/Maine/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 1024
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Mississippi_Food:
+    prefix: "Represent the restaurant review summary: "
+    path: GoogleLocalData/Food/rating_dataset/filtered_Mississippi.pkl
+    pure_dataset: GoogleLocalData/Food/rating_pure_dataset/filtered_Mississippi.pkl
+    pair: GoogleLocalData/Food/pairs/Mississippi.pkl
+    guide_model: GoogleLocalData/Food/guide_model_text_embeddings/Mississippi.pt
+    text_fields: [text]
+    temperature: 0.01
+    max_behavior_len: 30
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: GoogleLocalData/Food/Mississippi/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 1024
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+# ------------------- Fashion ----------------------------------------
+
+California_Fashion:
+    path: GoogleLocalData/Fashion/rating_dataset/filtered_California.pkl
+    pure_dataset: GoogleLocalData/Fashion/rating_pure_dataset/filtered_California.pkl
+    pair: GoogleLocalData/Fashion/pairs/California.pkl
+    guide_model: GoogleLocalData/Fashion/guide_model_text_embeddings/California.pt
+    text_fields: [text]
+    temperature: 0.01
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: GoogleLocalData/Fashion/California/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 512
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Florida_Fashion:
+    path: GoogleLocalData/Fashion/rating_dataset/filtered_Florida.pkl
+    pure_dataset: GoogleLocalData/Fashion/rating_pure_dataset/filtered_Florida.pkl
+    pair: GoogleLocalData/Fashion/pairs/Florida.pkl
+    guide_model: GoogleLocalData/Fashion/guide_model_text_embeddings/Florida.pt
+    text_fields: [text]
+    temperature: 0.01
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: GoogleLocalData/Fashion/Florida/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 512
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Georgia_Fashion:
+    path: GoogleLocalData/Fashion/rating_dataset/filtered_Georgia.pkl
+    text_fields: [text]
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: GoogleLocalData/Fashion/Georgia/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 512
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Illinois_Fashion:
+    path: GoogleLocalData/Fashion/rating_dataset/filtered_Illinois.pkl
+    text_fields: [text]
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: GoogleLocalData/Fashion/Illinois/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 512
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Michigan_Fashion:
+    path: GoogleLocalData/Fashion/rating_dataset/filtered_Michigan.pkl
+    text_fields: [text]
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: GoogleLocalData/Fashion/Michigan/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 512
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+New_York_Fashion:
+    path: GoogleLocalData/Fashion/rating_dataset/filtered_New_York.pkl
+    text_fields: [text]
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: GoogleLocalData/Fashion/New_York/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 512
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Ohio_Fashion:
+    path: GoogleLocalData/Fashion/rating_dataset/filtered_Ohio.pkl
+    text_fields: [text]
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: GoogleLocalData/Fashion/Ohio/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 512
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Pennsylvania_Fashion:
+    path: GoogleLocalData/Fashion/rating_dataset/filtered_Pennsylvania.pkl
+    text_fields: [text]
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: GoogleLocalData/Fashion/Pennsylvania/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 512
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+
+Texas_Fashion:
+    path: GoogleLocalData/Fashion/rating_dataset/filtered_Texas.pkl
+    pure_dataset: GoogleLocalData/Fashion/rating_pure_dataset/filtered_Texas.pkl
+    pair: GoogleLocalData/Fashion/pairs/Texas.pkl
+    guide_model: GoogleLocalData/Fashion/guide_model_text_embeddings/Texas.pt
+    text_fields: [text]
+    temperature: 0.01
+    max_behavior_len: 20
+    naive_ctr:
+        learning_rate: 3e-3
+        factor: 0.3
+        patience: 0
+        train:
+            output_dir: GoogleLocalData/Fashion/Texas/ctr
+            per_device_train_batch_size: 512
+            per_device_eval_batch_size: 512
+            logging_strategy: epoch
+            save_strategy: epoch
+            evaluation_strategy: epoch
+
+

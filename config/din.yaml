@@ -1,0 +1,21 @@
+# ---------- Amazon ---------------
+ctr_model:
+    activation: dice
+    attention_mlp: [64, 32]
+    batch_norm: True
+    dropout: 0.5
+    fc_mlp: [128, 64, 64]
+
+    learning_rate: 3e-3
+    weight_decay: 1e-6
+
+# --------- MovieLens ----------
+# ctr_model:
+#     activation: dice
+#     attention_mlp: [64, 32]
+#     batch_norm: True
+#     dropout: 0.0
+#     fc_mlp: [128, 64, 64]
+
+#     learning_rate: 6e-3
+#     weight_decay: 5e-4
