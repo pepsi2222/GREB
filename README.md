@@ -42,10 +42,17 @@ Processed data can be downloaded [here](https://rec.ustc.edu.cn/share/c2ee4a40-5
 ### Environment
 
 ```bash
-conda env create -f deepspeed.yaml
+conda env create -f rec.yaml
+conda activate greb
 ```
 
-## Benchmark
+### Set data path
+
+Set the `DATA_MOUNT_DIR`:
+    
+```bash
+export DATA_MOUNT_DIR=[DOWNLOAD_PATH]/data
+```
 
 ### Ranking
 
