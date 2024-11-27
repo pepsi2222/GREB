@@ -1,4 +1,4 @@
-name: greb
+name: rec
 channels:
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch

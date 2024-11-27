@@ -43,7 +43,6 @@ Processed data can be downloaded [here](https://rec.ustc.edu.cn/share/c2ee4a40-5
 
 ```bash
 conda env create -f rec.yaml
-conda activate greb
 ```
 
 ### Set data path
@@ -56,13 +55,13 @@ export DATA_MOUNT_DIR=[DOWNLOAD_PATH]/data
 
 ### Ranking
 
-for naive:
+**for naive:**
 
 ```bash
 bash ctr.sh [CUDA_ID_0] [CUDA_ID_1] [DATASET_NAME]
 ```
 
-for text-embedding-enhanced:
+**for text-embedding-enhanced:**
 
 ```bash
 bash ctrwlm.sh [CUDA_ID_0] [CUDA_ID_1] [DATASET_NAME] [TEXT_EMBEDDING_PATH] [SAVE_PREFIX]
@@ -70,14 +69,16 @@ bash ctrwlm.sh [CUDA_ID_0] [CUDA_ID_1] [DATASET_NAME] [TEXT_EMBEDDING_PATH] [SAV
 
 ### Retrieval
 
-for naive:
+**for naive:**
 
 ```bash
 cd RecStudio
 bash gre.sh SASRec [DATASET_PKL_PATH] [TEXT_EMBEDDING_PATH]
 ```
 
-for text-embedding-enhanced:
+**for text-embedding-enhanced:**
+
+set `model_name_or_path` in `RecStudio/recstudio/model/seq/config/te_id_sasrec.yaml` and then
 
 ```bash
 cd RecStudio
@@ -86,5 +87,5 @@ bash gre.sh TE_ID_SASRec [DATASET_PKL_PATH] [TEXT_EMBEDDING_PATH]
 
 ### Configuration
 
-You can change the configuration in `din.yaml`, `sasrec.yaml` and `te_id_sasrec.yaml` to search the best results.
+You can change the configuration in `config/din.yaml`, `RecStudio/recstudio/model/seq/config/sasrec.yaml` and `RecStudio/recstudio/model/seq/config/te_id_sasrec.yaml` to search the best results.
 
