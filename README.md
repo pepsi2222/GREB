@@ -12,14 +12,13 @@ We pre-trained GRE on a wide array of data specifically curated from various rec
 
 After fine-tuning, you can use the model to generate textual item embeddings for recommendation tasks.
 
-The trained GRE modols can be downloaded here: [small](https://huggingface.co/pepsiness/gre-small), [base](https://huggingface.co/pepsiness/gre-base), and [large](https://huggingface.co/pepsiness/gre-large
-).
+The trained GRE models can be downloaded here: [small](https://huggingface.co/pepsiness/gre-small), [base](https://huggingface.co/pepsiness/gre-base), and [large](https://huggingface.co/pepsiness/gre-large).
 
 ### GRE-B
 
 To comprehensively assess our general recommendation-oriented embedding, we have established a benchmark using diverse recommendation datasets which are distinct from the training data to guarantee fairness in evaluation. Our benchmark includes a total of 26 datasets, which are categorized into six recommendation scenarios: e-commerce, fashion, books, games, video, and catering. 
 
-We utilize [SASRec](https://github.com/kang205/SASRec) and _DSSM_ for the **retrieval** task, and the results are evaluated using metrics including NDCG and Recall. As for the **ranking** task, _DIN_ and _DeepFM_ are employed, while AUC and Logloss are chosen for evaluation.
+We utilize _SASRec_ and _DSSM_ for the **retrieval** task, and the results are evaluated using metrics including NDCG and Recall. As for the **ranking** task, _DIN_ and _DeepFM_ are employed, while AUC and Logloss are chosen for evaluation.
 
 The statistics of the datasets:
 <div align=center><img src="./README.assets/table1.png" alt="benchmark datasets" style="width: 40%"></div>
@@ -45,9 +44,7 @@ Processed data can be downloaded [here](https://rec.ustc.edu.cn/share/c2ee4a40-5
 conda env create -f rec.yaml
 ```
 
-### Set data path
-
-Set the `DATA_MOUNT_DIR`:
+Set the `DATA_MOUNT_DIR` in your environment:
     
 ```bash
 export DATA_MOUNT_DIR=[DOWNLOAD_PATH]/data
@@ -77,8 +74,6 @@ bash gre.sh SASRec [DATASET_PKL_PATH] [TEXT_EMBEDDING_PATH]
 ```
 
 **for text-embedding-enhanced:**
-
-set `model_name_or_path` in `RecStudio/recstudio/model/seq/config/te_id_sasrec.yaml` and then
 
 ```bash
 cd RecStudio
