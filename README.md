@@ -82,5 +82,5 @@ bash gre.sh TE_ID_SASRec [DATASET_PKL_PATH] [TEXT_EMBEDDING_PATH]
 
 ### Configuration
 
-You can change the configuration in `config/din.yaml`, `RecStudio/recstudio/model/seq/config/sasrec.yaml` and `RecStudio/recstudio/model/seq/config/te_id_sasrec.yaml` to search the best results.
+You can change the configuration in `RecStudio/recstudio/model/seq/config/din.yaml`, `RecStudio/recstudio/model/seq/config/sasrec.yaml` and `RecStudio/recstudio/model/seq/config/te_id_sasrec.yaml` to search the best results.
 
